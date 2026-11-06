@@ -8,6 +8,7 @@
  */
 
 import { fileURLToPath } from 'url';
+import { godotTools, handleGodot } from './extensions.js';
 import { join, dirname, basename, normalize } from 'path';
 import { existsSync, readdirSync, mkdirSync } from 'fs';
 import { spawn, execFile } from 'child_process';
@@ -138,7 +139,7 @@ class GodotServer {
     // Initialize the MCP server
     this.server = new Server(
       {
-        name: 'godot-mcp',
+        name: 'godot-mcp-lab',
         version: '0.1.0',
       },
       {
@@ -667,6 +668,7 @@ class GodotServer {
     // Define available tools
     this.server.setRequestHandler(ListToolsRequestSchema, async () => ({
       tools: [
+        ...godotTools,
         {
           name: 'launch_editor',
           description: 'Launch Godot editor for a specific project',
@@ -929,6 +931,11 @@ class GodotServer {
     // Handle tool calls
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       this.logDebug(`Handling tool request: ${request.params.name}`);
+      if (godotTools.some(tool => tool.name === request.params.name)) {
+        if (!this.godotPath) await this.detectGodotPath();
+        if (!this.godotPath) return this.createErrorResponse('Godot executable not found');
+        return handleGodot(request.params.name, request.params.arguments ?? {}, this.godotPath, join(__dirname, 'scripts', 'godot_inspect.gd'));
+      }
       switch (request.params.name) {
         case 'launch_editor':
           return await this.handleLaunchEditor(request.params.arguments);

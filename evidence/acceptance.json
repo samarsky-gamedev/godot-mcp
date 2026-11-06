@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-06T15:24:42.592Z",
+  "folder": "C:\\Users\\psk\\AppData\\Local\\Temp\\godot mcp PNiUol",
+  "checks": [
+    {
+      "name": "initialize and tools/list",
+      "passed": true,
+      "tools": [
+        "godot_inspect_scene",
+        "godot_validate_project",
+        "launch_editor",
+        "run_project",
+        "get_debug_output",
+        "stop_project",
+        "get_godot_version",
+        "list_projects",
+        "get_project_info",
+        "create_scene",
+        "add_node",
+        "load_sprite",
+        "export_mesh_library",
+        "save_scene",
+        "get_uid",
+        "update_project_uids"
+      ]
+    },
+    {
+      "name": "create_scene -> add_node -> inspect_scene",
+      "passed": true,
+      "result": {
+        "ok": true,
+        "count": 2,
+        "nodes": [
+          {
+            "name": "root",
+            "path": ".",
+            "type": "Node2D"
+          },
+          {
+            "name": "Message",
+            "path": "./Message",
+            "type": "Label"
+          }
+        ],
+        "scene": "res://main.tscn",
+        "scope": "saved_scene"
+      }
+    },
+    {
+      "name": "valid scene import and runtime",
+      "passed": true,
+      "result": {
+        "ok": true,
+        "projectPath": "C:\\Users\\psk\\AppData\\Local\\Temp\\godot mcp PNiUol",
+        "frames": 10,
+        "stages": {
+          "import": {
+            "ok": true,
+            "exitCode": 0,
+            "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\r\n\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\r\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\r\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\r\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\r\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\r\n\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\r\n\u001b[0m\r\n",
+            "stderr": ""
+          },
+          "runtime": {
+            "ok": true,
+            "exitCode": 0,
+            "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\r\n\r\n",
+            "stderr": ""
+          }
+        },
+        "limitation": "Bounded smoke test only; no gameplay, visual, network or security certification."
+      }
+    },
+    {
+      "name": "invalid frames and outside path rejected",
+      "passed": true
+    },
+    {
+      "name": "broken GDScript reported as failure",
+      "passed": true,
+      "result": {
+        "ok": false,
+        "projectPath": "C:\\Users\\psk\\AppData\\Local\\Temp\\godot mcp PNiUol",
+        "frames": 10,
+        "stages": {
+          "import": {
+            "ok": false,
+            "exitCode": 0,
+            "stdout": "Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org\r\n\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Инициализация проекта (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Сканирование структуры файлов…\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Загрузка глобальных имен классов…\u001b[39m\u001b[0m\r\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Проверка GDExtensions…\u001b[39m\u001b[0m\r\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Создание скриптов автозагрузки…\u001b[39m\u001b[0m\r\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Инициализация плагинов…\u001b[39m\u001b[0m\r\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Начало сканирование файлов…\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\r\n\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Загрузка редактора (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка макета редактора…\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Загрузка док-панели…\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\r\n\u001b[0m\r\n",
+            "stderr": "WARNING: Detected another project.godot at res://nested. The folder will be ignored.\r\n   at: _should_skip_directory (editor/file_system/editor_file_system.cpp:3497)\r\nSCRIPT ERROR: Parse Error: Expected end of statement after expression, found \"Identifier\" instead.\r\n   at: GDScript::reload (res://broken.gd:3)\r\nERROR: Failed to load script \"res://broken.gd\" with error \"Parse error\".\r\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\r\n"
+          },
+          "runtime": null
+        },
+        "limitation": "Bounded smoke test only; no gameplay, visual, network or security certification."
+      }
+    }
+  ],
+  "version": {
+    "content": [
+      {
+        "type": "text",
+        "text": "4.7.1.stable.official.a13da4feb"
+      }
+    ]
+  }
+}

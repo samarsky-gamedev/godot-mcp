@@ -27,3 +27,5 @@ try {
 }
 
 console.log('Build scripts completed successfully!');
+
+fs.copyFileSync(path.join(__dirname, '..', 'src', 'scripts', 'godot_inspect.gd'), path.join(__dirname, '..', 'build', 'scripts', 'godot_inspect.gd'));

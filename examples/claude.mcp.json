@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "godot_lab": {
+      "type": "stdio",
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": ["C:\\path\\to\\godot-mcp-lab\\build\\index.js"],
+      "env": {
+        "GODOT_PATH": "C:\\path\\to\\Godot_console.exe",
+        "DEBUG": "false"
+      }
+    }
+  }
+}

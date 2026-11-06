@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[node name="root" type="Node2D" unique_id=872691943]
+
+[node name="Title" type="Label" parent="." unique_id=1965817081]
+text = "GODOT MCP
+
+This scene was created through MCP tools.
+
+1. create_scene
+2. add_node
+3. godot_inspect_scene
+4. godot_validate_project
+
+Source project and logs are editable."

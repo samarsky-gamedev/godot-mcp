@@ -1,0 +1,10 @@
+# Merge this section into your chosen Codex config. Replace all example paths.
+[mcp_servers.godot_lab]
+command = 'C:\Program Files\nodejs\node.exe'
+args = ['C:\path\to\godot-mcp-lab\build\index.js']
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.godot_lab.env]
+GODOT_PATH = 'C:\path\to\Godot_console.exe'
+DEBUG = 'false'

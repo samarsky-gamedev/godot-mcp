@@ -26,3 +26,11 @@ Thumbs.db
 
 # Coverage directory
 coverage/
+
+# Local demo import cache
+**/.godot/
+
+.work/
+*.tmp
+
+demo-output/
