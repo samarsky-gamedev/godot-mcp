@@ -1,64 +1,25 @@
 # MCP сервер для игрового движка Godot
 
-## Подготовка к подключению
+Локальный MCP-сервер для работы со сценами и проверки запуска проектов Godot 4. Требуется Node.js 18+ с npm.
 
-Установите Node.js 18+ с npm и Godot 4. Скачайте репозиторий и выполните в его папке:
+В PowerShell из папки репозитория выполните сборку и укажите путь к Godot:
 
 ```powershell
-npm ci --ignore-scripts
-npm run build
+npm ci
+$server = (Resolve-Path .\build\index.js).Path
+$godot = 'C:\путь\к\Godot_console.exe'
 ```
 
-В конфигурациях ниже замените примеры абсолютных путей на свои:
+Подключите сервер командой для своего клиента:
 
-- `C:\Program Files\nodejs\node.exe` — исполняемый файл Node.js;
-- `C:\path\to\godot-mcp\build\index.js` — собранный сервер;
-- `C:\path\to\Godot_console.exe` — исполняемый файл Godot.
+```powershell
+# Claude Code
+claude mcp add --env "GODOT_PATH=$godot" --transport stdio --scope user godot -- node "$server"
 
-## Подключение к Claude Code
-
-Создайте `.mcp.json` в корне проекта, который открываете в Claude Code. Если файл уже существует, добавьте `godot_lab` в имеющийся объект `mcpServers`.
-
-```json
-{
-  "mcpServers": {
-    "godot_lab": {
-      "type": "stdio",
-      "command": "C:\\Program Files\\nodejs\\node.exe",
-      "args": ["C:\\path\\to\\godot-mcp\\build\\index.js"],
-      "env": {
-        "GODOT_PATH": "C:\\path\\to\\Godot_console.exe",
-        "DEBUG": "false"
-      }
-    }
-  }
-}
+# Codex
+codex mcp add godot --env "GODOT_PATH=$godot" -- node "$server"
 ```
 
-Откройте Claude Code в этом проекте, подтвердите подключение проектного MCP-сервера при запросе и проверьте его состояние командой `/mcp`.
+Откройте новую сессию и попросите получить версию Godot. Для [DeepSeek через Claude Code](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code/) подключение MCP остаётся тем же.
 
-[Документация Claude Code по MCP](https://code.claude.com/docs/en/mcp).
-
-## Подключение к Codex
-
-Добавьте следующий блок в `~/.codex/config.toml` (в Windows — `%USERPROFILE%\.codex\config.toml`), сохранив остальные настройки:
-
-```toml
-[mcp_servers.godot_lab]
-command = 'C:\Program Files\nodejs\node.exe'
-args = ['C:\path\to\godot-mcp\build\index.js']
-startup_timeout_sec = 30
-tool_timeout_sec = 120
-
-[mcp_servers.godot_lab.env]
-GODOT_PATH = 'C:\path\to\Godot_console.exe'
-DEBUG = 'false'
-```
-
-Начните новую сессию Codex. Для проверки подключения попросите: «Используй сервер godot_lab и получи версию Godot».
-
-[Документация Codex по MCP](https://developers.openai.com/codex/mcp/).
-
-## Отчёт
-
-[Открыть отчёт по лабораторным работам (PDF)](materials/Отчёт.pdf).
+[Отчёт по проекту (PDF)](https://github.com/samarsky-gamedev/godot-mcp/blob/1e5a5b7b04ef2e08ccac55748af4d7b439be84bc/materials/%D0%9E%D1%82%D1%87%D1%91%D1%82.pdf)

@@ -34,3 +34,6 @@ coverage/
 *.tmp
 
 demo-output/
+
+/evidence/
+/materials/
